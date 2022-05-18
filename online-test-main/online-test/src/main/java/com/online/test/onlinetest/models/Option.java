@@ -1,10 +1,14 @@
 package com.online.test.onlinetest.models;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -21,12 +25,13 @@ public class Option{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name ="TITLE",nullable = false )
-    private String title;
-
-    @Column(name ="DESCRIPTION" )
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name ="TIME_LIMIT" )
-    private int timeLimit;
+    @Column(name = "IS_CORRECT")
+    private boolean isCorrect;
+
+    @ManyToOne
+    @JoinColumn(name="QUESTION_ID", nullable=false)
+    private Question question; 
 }
