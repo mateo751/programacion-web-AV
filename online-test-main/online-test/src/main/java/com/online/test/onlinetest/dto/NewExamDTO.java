@@ -1,5 +1,13 @@
 package com.online.test.onlinetest.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
 
 public class NewExamDTO {
     private String title;
