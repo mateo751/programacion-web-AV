@@ -16,5 +16,6 @@ public class ExamDTO {
     private short timeLimit;
     private double minimumPassingScore;
     private short numberOfQuestions;
-    private String instructions;      
+    private String instructions;
+   
 }
