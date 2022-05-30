@@ -19,7 +19,6 @@ import lombok.Setter;
 @Table(name="TBL_OPTIONS")
 @Getter
 @Setter
-
 public class Option{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

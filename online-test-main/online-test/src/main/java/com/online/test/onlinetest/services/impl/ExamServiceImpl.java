@@ -1,5 +1,4 @@
 package com.online.test.onlinetest.services.impl;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,19 +39,20 @@ public class ExamServiceImpl implements ExamService {
     @Transactional(readOnly = true)
     public ExamDTO retrieve(Long id) throws Exception {
         Optional<Exam> exam = examRepository.findById(id);
-        if(exam.isEmpty()){
+        if(exam.isPresent()){
             throw new Exception("Exan not found");
         }
         //.orElseThrow(()-> new Exception("Exam not found"));
-        return modelMapper.map(exam, ExamDTO.class);
+        return modelMapper.map(exam.get(), ExamDTO.class);
     }
 
     @Override
     @Transactional
-    public ExamDTO update(ExamDTO examDTO) throws Exception {
-        Exam exam = examRepository.findById(examDTO.getId ())
+    public ExamDTO update(ExamDTO examDTO, Long id) throws Exception {
+        Exam exam = examRepository.findById(id)
                 .orElseThrow(()-> new Exception("Exam not found"));
         
+        exam.setId(id);
         exam = modelMapper.map(examDTO, Exam.class);
         examRepository.save(exam);       
 
@@ -74,5 +74,4 @@ public class ExamServiceImpl implements ExamService {
         return exams.stream().map(exam -> modelMapper.map(exam, ExamDTO.class))
             .collect(Collectors.toList());        
     }
-
 }
