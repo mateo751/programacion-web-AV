@@ -32,7 +32,7 @@ public class Question {
     private String description;
 
     @Column(name ="SCORE" )
-    private String score;
+    private short score;
 
     @ManyToOne
     @JoinColumn(name="EXAM_ID",nullable=false)

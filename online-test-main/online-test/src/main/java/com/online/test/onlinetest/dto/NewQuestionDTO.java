@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 @Setter
 @NoArgsConstructor
 
-public class ExamDTO {
-    private Long id;
+public class NewQuestionDTO {
+    private String name;
+    private String description;
+    private short score;
+    private ExamDTO exam;
 }

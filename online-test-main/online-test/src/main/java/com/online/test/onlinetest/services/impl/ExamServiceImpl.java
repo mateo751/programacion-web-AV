@@ -10,7 +10,6 @@ import com.online.test.onlinetest.repositories.ExamRepository;
 import com.online.test.onlinetest.services.ExamService;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +19,7 @@ public class ExamServiceImpl implements ExamService {
     final ModelMapper modelMapper;
     final ExamRepository examRepository;
 
-    @Autowired
-    public ExamServiceImpl(@Autowired ExamRepository repository, ModelMapper mapper){
+    public ExamServiceImpl(ExamRepository repository, ModelMapper mapper){
         this.examRepository = repository;
         this.modelMapper = mapper;
     }
